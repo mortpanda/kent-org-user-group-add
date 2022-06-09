@@ -1,5 +1,18 @@
-<p-dock [model]="mainMenu" position="top" id="mainDock">
+<ng-template #bigScreen>
+<p-dock [model]="mainMenu" position="left" id="mainDock">
     <ng-template pTemplate="item" let-item>
         <img [src]="item.icon" [pTooltip]="item.label"  tooltipPosition="top" width="70%" height="70%">
     </ng-template>
 </p-dock>
+
+</ng-template>
+
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+    
+    <p-menubar [model]="mainMenu" id="smallMenu"></p-menubar>
+
+  
+  </ng-template>
+  

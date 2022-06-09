@@ -9,7 +9,7 @@ export class OktaConfigService {
 
   //Localhost https://kent-nagao-oie.oktapreview.com
   strBaseURI = 'https://kent-nagao-oie.oktapreview.com/';
-  strRedirectURL = 'https://192.168.1.100:4200/kent-org-user-group-add/';
+  strRedirectURL = 'https://192.168.1.100:4200/kent-org-user-group-add/add/';
   strClientID = '0oa47buceiGBGd8bj0x7';
   strIssuer = 'https://kent-nagao-oie.oktapreview.com/oauth2/default/';
   strPostLogoutURL = 'https://192.168.1.100:4200/kent-org-user-group-add/';
@@ -20,7 +20,7 @@ export class OktaConfigService {
   strPkce = true;
   strLang = 'ja';
   strBrand = '#abd5d6';
-  strLogo = "assets/img/okta-japan-small.png";
+  strLogo = "assets/img/gunmachan.jpg";
   strMeEP = '/api/v1/users/me';
 
   strGitHubRepo = "https://github.com/mortpanda/my-apps-launcher-v2";

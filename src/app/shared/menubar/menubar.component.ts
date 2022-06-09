@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuListService} from '../menu-list/menu-list.service';
+import { MenuListService } from '../menu-list/menu-list.service';
 import { ViewEncapsulation } from '@angular/core';
-import {PrimeIcons} from 'primeng/api';
+import { PrimeIcons } from 'primeng/api';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-menubar',
@@ -10,10 +11,21 @@ import {PrimeIcons} from 'primeng/api';
   encapsulation: ViewEncapsulation.None
 })
 export class MenubarComponent implements OnInit {
-mainMenu;
+  smallScreen: boolean;
+  mainMenu;
   constructor(
-    private MenuListService:MenuListService,
-  ) { 
+    private MenuListService: MenuListService,
+    private breakpointObserver: BreakpointObserver,
+
+  ) {
+    breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small
+    ]).subscribe(result => {
+      this.smallScreen = result.matches;
+    });
+
+
     this.mainMenu = this.MenuListService.itemMenubar;
   }
 

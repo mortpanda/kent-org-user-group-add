@@ -1,10 +1,23 @@
-#mainDock{
-    .p-dock{
-        .p-dock-list-container{
+#mainDock {
+    .p-dock {
+        .p-dock-list-container {
             // background-color: #00297A;
             // border-radius: 7px;
         }
-    .p-dock-list{
-        padding: 6px!important;
+
+        .p-dock-list {
+            padding: 6px !important;
+        }
     }
-}}
+}
+
+// #smallMenu {
+//     .p-menubar-root-list {
+//         background-color: #00297A !important;
+
+//         .p-menuitem-text {
+//             color: #FFFFFF !important;
+//         }
+//     }
+
+// }

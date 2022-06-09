@@ -1,0 +1,26 @@
+<ng-template #bigScreen>
+<div class="landingDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+
+    <div class="subLandingDiv">
+        <img src="assets/img/okta_ud_medium_white.png" class="landingBanner">
+    </div>
+    <div class="subLandingDiv">
+        <div id="okta-signin-container"></div>
+    </div>
+
+
+</div>
+
+</ng-template>
+
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+
+    <div class="smallLanding">
+        <div class="smScreenWidget">
+        <div id="okta-signin-container"></div>
+    </div>
+    </div>
+
+</ng-template>

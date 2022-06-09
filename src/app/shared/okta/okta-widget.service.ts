@@ -51,12 +51,12 @@ export class OktaWidgetService {
         brand: OktaBrand,
       },
       postLogoutRedirectUri: OktaPostlogoutURI,
-      features: {
-        rememberMe: false,
-        selfServiceUnlock: false,
-        hideSignOutLinkInMFA: false,
+      // features: {
+      //   rememberMe: false,
+      //   selfServiceUnlock: false,
+      //   hideSignOutLinkInMFA: false,
 
-      },
+      // },
       authParams: {
         issuer: OktaIssuer,
         responseMode: OktaResMode,
@@ -65,7 +65,7 @@ export class OktaWidgetService {
         pkce: OktaPKCE,
         prompt: OktaResMode
       },
-      useInteractionCodeFlow: 'true',
+      useInteractionCodeFlow: 'false',
 
     });
     console.log(OktaScope);

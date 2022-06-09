@@ -12,11 +12,15 @@ import {ButtonModule} from 'primeng/button';
 import {DockModule} from 'primeng/dock';
 import {PrimeIcons} from 'primeng/api';
 import {TooltipModule} from 'primeng/tooltip';
+import { LandingComponent } from './landing/landing.component';
+import { AddComponent } from './add/add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenubarComponent
+    MenubarComponent,
+    LandingComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
