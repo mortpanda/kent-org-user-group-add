@@ -86,9 +86,9 @@
     color: #ffffff !important;
   }
   
-  .okta-verify-authenticator {
-    background-image: url("/assets/img/panda.ico") !important;
-  }
+  // .okta-verify-authenticator {
+  //   background-image: url("/assets/img/panda.ico") !important;
+  // }
   
   .okta-form-infobox-error,
   .infobox,
@@ -126,14 +126,14 @@
   }
   
   #okta-sign-in.auth-container .mfa-okta-verify, .mfa-okta-password {
-    display:none!important;
+    // display:none!important;
   
   }
   
   #okta-sign-in .o-form .o-form-fieldset:last-child {
- display:none!important;
+//  display:none!important;
 }
 
 .siw-main-footer{
-    display:none!important;   
+    // display:none!important;   
 }

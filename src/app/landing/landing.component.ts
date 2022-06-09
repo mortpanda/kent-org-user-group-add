@@ -35,31 +35,31 @@ export class LandingComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.strUserSession = await this.authService.isAuthenticated();
-    console.log(this.strUserSession)
-    switch (this.strUserSession == true) {
-      case false:
-        await this.OktaWidgetService.CloseWidget();
-        await this.OktaWidgetService.login(this.OktaConfigService.strRedirectURL, true);
-      case true:
-        this.strThisUser = await this.authService.token.getUserInfo()
-          .then(function (user) {
+    // this.strUserSession = await this.authService.isAuthenticated();
+    // console.log(this.strUserSession)
+    // switch (this.strUserSession == true) {
+    //   case false:
+        // await this.OktaWidgetService.CloseWidget();
+        await this.OktaWidgetService.login(this.OktaConfigService.strRedirectURL);
+    //   case true:
+    //     this.strThisUser = await this.authService.token.getUserInfo()
+    //       .then(function (user) {
 
-            return user
-          })
-          .catch((err) => {
-            console.log(err);
-            window.location.replace(this.OktaConfigService.strPostLogoutURL);
-          })
-        this.strFullName = await this.strThisUser.name;
+    //         return user
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //         window.location.replace(this.OktaConfigService.strPostLogoutURL);
+    //       })
+    //     this.strFullName = await this.strThisUser.name;
 
-        await this.OktaGetTokenService.GetAccessToken();
+    //     await this.OktaGetTokenService.GetAccessToken();
 
-        console.log(this.strThisUser)
+    //     console.log(this.strThisUser)
 
 
-        break;
-    }
+    //     break;
+    // }
   }
 
 }

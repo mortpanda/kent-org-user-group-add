@@ -28,7 +28,7 @@ export class OktaWidgetService {
     return authenticated;
   }
 
-  async login(redirecturi, logo: boolean) {
+  async login(redirecturi) {
     const OktaClientID = this.OktaConfig.strClientID;
     const OktaBaseURI = this.OktaConfig.strBaseURI;
     const OktaLang = this.OktaConfig.strLang;
@@ -51,12 +51,14 @@ export class OktaWidgetService {
         brand: OktaBrand,
       },
       postLogoutRedirectUri: OktaPostlogoutURI,
-      // features: {
-      //   rememberMe: false,
-      //   selfServiceUnlock: false,
-      //   hideSignOutLinkInMFA: false,
+      features: {
+        //  rememberMe: false,
+         router: true,
+         showPasswordToggleOnSignInPage: true,
+         hideSignOutLinkInMFA: false,
+         
 
-      // },
+      },
       authParams: {
         issuer: OktaIssuer,
         responseMode: OktaResMode,
@@ -65,7 +67,8 @@ export class OktaWidgetService {
         pkce: OktaPKCE,
         prompt: OktaResMode
       },
-      useInteractionCodeFlow: 'false',
+       useInteractionCodeFlow: 'true',
+      //  flow:'resetPassword',
 
     });
     console.log(OktaScope);

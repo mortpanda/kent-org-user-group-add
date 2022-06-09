@@ -18,7 +18,7 @@ export class OktaConfigService {
   strResponseMode = 'fragment';
   strPrompt = 'login';
   strPkce = true;
-  strLang = 'ja';
+  strLang = 'en';
   strBrand = '#abd5d6';
   strLogo = "assets/img/gunmachan.jpg";
   strMeEP = '/api/v1/users/me';
