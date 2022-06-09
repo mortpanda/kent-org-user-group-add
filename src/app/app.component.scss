@@ -1,0 +1,17 @@
+#appMain {
+    color: #FFFFFF;
+    // border-style: dotted;
+
+    background-image: url('/assets/img/bg-cloud-v2.png');
+    width: 100vw !important;
+    height: 100vh !important;
+     min-height: 100% !important;
+    min-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    /* Below for Parallax effect */
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
