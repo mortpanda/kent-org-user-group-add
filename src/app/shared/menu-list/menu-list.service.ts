@@ -75,7 +75,7 @@ orgActionMenu=[
     DialogConfig.disableClose = false;
     DialogConfig.id = "modal-component";
     DialogConfig.height = "auto";
-    DialogConfig.width = "auto";
+    DialogConfig.width = "400px";
     const modalDialog = this._matdialog.open(ModalComponent, DialogConfig);
   }
 

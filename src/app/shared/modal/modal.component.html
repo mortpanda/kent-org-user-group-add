@@ -1,1 +1,20 @@
 <p>modal works!</p>
+
+
+<div *ngIf="userAddAction; else notShow">
+    <div class="userAddMainDiv">
+        User Add
+    </div>
+</div>
+<ng-template #notShow></ng-template>
+
+
+<!-- ///////////////////////////////////////// -->
+<!-- ///////////////////////////////////////// -->
+
+<div *ngIf="groupAddAction; else notShow">
+    <div class="groupAddMainDiv">
+        Group Add
+    </div>
+</div>
+<ng-template #notShow></ng-template>

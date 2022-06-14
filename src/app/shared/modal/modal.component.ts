@@ -6,7 +6,8 @@ import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnInit {
   userAddAction: boolean = false;
@@ -30,13 +31,13 @@ export class ModalComponent implements OnInit {
       case "addUser": {
         this.userAddAction = true;
         this.groupAddAction = false;
-        alert(this.userAddAction)
+        
         break;
       }
       case "addGroup": {
         this.userAddAction = false;
         this.groupAddAction = true;
-        alert(this.groupAddAction);
+        
         break;
       }
     }
