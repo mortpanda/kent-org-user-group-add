@@ -1,10 +1,44 @@
-<p>modal works!</p>
-
-
 <div *ngIf="userAddAction; else notShow">
-    <div class="userAddMainDiv">
-        User Add
+    <div class="userAddMainDiv" fxLayoutAlign="center">
+        <!-- User Add -->
+        <div class="modalBannerDiv">
+            <img src="assets/img/logo.png" class="userAddBanner">
+        </div>
+
     </div>
+    <div class="dividerDiv" fxLayoutAlign="center">
+        <p-divider></p-divider>
+    </div>
+
+    <div fxLayoutAlign="center">
+        <span class="p-input-icon-right">
+            <i class="pi pi-user-plus"></i>
+            <input type="text" pInputText />
+        </span>
+    </div>
+    
+
+    <div fxLayoutAlign="center">
+        <span class="p-input-icon-right">
+            <i class="pi pi-user-plus"></i>
+            <input type="text" pInputText />
+        </span>
+    </div>
+
+
+    <div class="dividerDiv" fxLayoutAlign="center">
+        <p-divider></p-divider>
+    </div>
+
+    <div fxLayoutAlign="center">
+        <span class="p-input-icon-right">
+            <i class="pi pi-envelope"></i>
+            <input type="text" pInputText />
+        </span>
+    </div>
+
+    <p-button label="Submit"></p-button>
+
 </div>
 <ng-template #notShow></ng-template>
 

@@ -17,6 +17,8 @@ import { AddComponent } from './add/add.component';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { ModalComponent } from './shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {DividerModule} from 'primeng/divider';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     DockModule,
     TooltipModule,
     SpeedDialModule,
-    MatDialogModule
+    MatDialogModule,
+    DividerModule,
+    InputTextModule,
   ],
   providers: [ModalComponent],
   bootstrap: [AppComponent]
