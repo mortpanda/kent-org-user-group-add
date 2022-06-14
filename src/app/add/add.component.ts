@@ -6,22 +6,27 @@ import { OktaAuth } from '@okta/okta-auth-js'
 import { OktaConfigService } from "../shared/okta/okta-config.service";
 import { OktaWidgetService } from '../shared/okta/okta-widget.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import {MenuListService } from '../shared/menu-list/menu-list.service';
+
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  styleUrls: ['./add.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AddComponent implements OnInit {
   smallScreen: boolean;
   public authService = new OktaAuth(this.OktaSDKAuthService.config);
   strUserSession;
   strThisUser;
+  orgActionMenu;
   constructor(public OktaGetTokenService: OktaGetTokenService,
     public OktaSDKAuthService: OktaSDKAuthService,
     public OktaConfigService: OktaConfigService,
     public OktaWidgetService: OktaWidgetService,
     private breakpointObserver: BreakpointObserver,
+    private  MenuListService:MenuListService,
     
   ) {
     breakpointObserver.observe([
@@ -30,6 +35,8 @@ export class AddComponent implements OnInit {
     ]).subscribe(result => {
       this.smallScreen = result.matches;
     });
+
+    this.orgActionMenu = this.MenuListService.orgActionMenu;
   }
 
   strFullName;

@@ -5,7 +5,7 @@
 
 
 .userName {
-    // color: #FFFFFF !important;
+     color: #FFFFFF !important;
     // border-style: dotted;
     width: 100vw !important;
     height: 50px !important;
@@ -14,18 +14,52 @@
 
 .subAddDiv {
     color: #FFFFFF !important;
-    border-style: dotted;
+    // border-style: dotted;
     // padding-top:20px!important;
     width: 40vw !important;
     height: 70vh !important;
     // text-align: center!important;
 }
 
-.addBannerDiv{
+.addBannerDiv {
     width: 100vw !important;
-    text-align: center!important;
+    text-align: center !important;
 }
 
-.addBanner{
-    height:10vh!important;
+.addBanner {
+    height: 10vh !important;
+}
+
+#orgActionMenu {
+    left: 50% !important;
+    margin-left: -72px !important;
+    top: 45% !important;
+
+    .p-speeddial {
+
+        // box-shadow: 0px 5px 12px 0px #6E6E78!important;
+        .p-speeddial-button.p-button.p-button-icon-only {
+            color: #FFFFFF !important;
+            width: 9rem !important;
+            height: 9rem !important;
+            border: 5px solid !important;
+        }
+    }
+
+    .p-speeddial-action {
+        color: #ffffff !important;
+        width: 8rem !important;
+        height: 8rem !important;
+        border: solid #FFFFFF;
+        -webkit-box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+        box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+    }
+
+    .p-speeddial-action:hover {
+        opacity: .2 !important;
+    }
+
+    .pi {
+        font-size: 36px!important;
+    }
 }

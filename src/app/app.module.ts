@@ -6,21 +6,25 @@ import { AppComponent } from './app.component';
 import { RippleModule } from 'primeng/ripple';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MenubarModule} from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
 import { MenubarComponent } from './shared/menubar/menubar.component';
-import {ButtonModule} from 'primeng/button';
-import {DockModule} from 'primeng/dock';
-import {PrimeIcons} from 'primeng/api';
-import {TooltipModule} from 'primeng/tooltip';
+import { ButtonModule } from 'primeng/button';
+import { DockModule } from 'primeng/dock';
+import { PrimeIcons } from 'primeng/api';
+import { TooltipModule } from 'primeng/tooltip';
 import { LandingComponent } from './landing/landing.component';
 import { AddComponent } from './add/add.component';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { ModalComponent } from './shared/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenubarComponent,
     LandingComponent,
-    AddComponent
+    AddComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +36,10 @@ import { AddComponent } from './add/add.component';
     ButtonModule,
     DockModule,
     TooltipModule,
+    SpeedDialModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

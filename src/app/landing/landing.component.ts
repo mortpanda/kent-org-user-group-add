@@ -31,35 +31,13 @@ export class LandingComponent implements OnInit {
     ]).subscribe(result => {
       this.smallScreen = result.matches;
     });
-   }
+  }
 
   async ngOnInit() {
 
-    // this.strUserSession = await this.authService.isAuthenticated();
-    // console.log(this.strUserSession)
-    // switch (this.strUserSession == true) {
-    //   case false:
-        // await this.OktaWidgetService.CloseWidget();
-        await this.OktaWidgetService.login(this.OktaConfigService.strRedirectURL);
-    //   case true:
-    //     this.strThisUser = await this.authService.token.getUserInfo()
-    //       .then(function (user) {
+    await this.OktaWidgetService.CloseWidget();
+    await this.OktaWidgetService.login(this.OktaConfigService.strRedirectURL);
 
-    //         return user
-    //       })
-    //       .catch((err) => {
-    //         console.log(err);
-    //         window.location.replace(this.OktaConfigService.strPostLogoutURL);
-    //       })
-    //     this.strFullName = await this.strThisUser.name;
-
-    //     await this.OktaGetTokenService.GetAccessToken();
-
-    //     console.log(this.strThisUser)
-
-
-    //     break;
-    // }
   }
 
 }
