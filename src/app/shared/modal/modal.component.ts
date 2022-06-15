@@ -19,6 +19,10 @@ export class ModalComponent implements OnInit {
   userLastName;
   userEmail;
 
+  groupName;
+  groupDesc;
+
+
   userAddAction: boolean = false;
   groupAddAction: boolean = false;
   selectedMessage: any;
@@ -92,15 +96,19 @@ export class ModalComponent implements OnInit {
   }
 
   // SubmitResponse;
-  async Submit() {
+  async Submit(action) {
     await console.log(this.userFirstName)
     await console.log(this.userLastName)
     await console.log(this.userEmail)
 
-    await this.AddObject('adduser',this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.email, this.userFirstName, this.userLastName)
-    // await this.AddObject('adduser', this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.sub, this.userFirstName, this.userLastName)
+    switch (action) {
+      case "adduser": {
+        await this.AddObject(action, this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.email, this.userFirstName, this.userLastName)
+        // await this.AddObject('adduser', this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.sub, this.userFirstName, this.userLastName)
+        break;
+      }
 
-
+    }
   }
 
 
@@ -120,7 +128,7 @@ export class ModalComponent implements OnInit {
     this.myObjectToAdd = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
     console.log(this.myObjectToAdd);
     await this.processRes(this.myObjectToAdd.status);
-     
+
   }
 
   processRes(res) {
@@ -130,13 +138,13 @@ export class ModalComponent implements OnInit {
         this.showError();
         break;
       }
-      case "User exists":{
+      case "User exists": {
         this.toastMsg = this.myObjectToAdd.status;
         this.showError();
         break;
       }
 
-      case "User created":{
+      case "User created": {
         this.toastMsg = this.myObjectToAdd.status;
         this.showSuccess();
         break;
