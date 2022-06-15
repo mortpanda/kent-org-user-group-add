@@ -45,12 +45,14 @@ export class ModalComponent implements OnInit {
     this.userLastName = "User-200"
     this.userEmail = "test.user-200@okta.com"
 
+    this.groupName = "test-group"
+    this.groupDesc = "test-desc"
+
   }
 
   async ngOnInit() {
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
     // alert(this.selectedMessage)
-
 
     this.strUserSession = await this.authService.isAuthenticated();
     console.log(this.strUserSession)
@@ -103,17 +105,41 @@ export class ModalComponent implements OnInit {
 
     switch (action) {
       case "adduser": {
-        await this.AddObject(action, this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.email, this.userFirstName, this.userLastName)
-        // await this.AddObject('adduser', this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.sub, this.userFirstName, this.userLastName)
+        await this.AddUser(action, this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.email, this.userFirstName, this.userLastName)
+        // await this.AddUser('adduser', this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.sub, this.userFirstName, this.userLastName)
         break;
       }
 
+      case "addgroup": {
+        await this.AddGroup(action, this.OktaConfigService.strAddUrl,this.strThisUser.email, this.groupName, this.groupDesc)
+        // await this.AddUser('adduser', this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.sub, this.userFirstName, this.userLastName)
+        break;
+      }
     }
   }
 
 
-  myObjectToAdd;
-  async AddObject(action, url, email, subEmail, firstname, lastname) {
+  myGroupToAdd;
+  async AddGroup(action, url, email, groupName, groupDesc) {
+    let requestURI;
+    requestURI = url;
+
+    let requestBody;
+    requestBody = {
+      action: action,
+      groupName: groupName,
+      groupDesc: groupDesc,
+      secondEMail:email,
+      
+    }
+    this.myGroupToAdd = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    console.log(this.myGroupToAdd);
+    await this.processUserRes(this.myGroupToAdd.status);
+
+  }
+
+  myUserToAdd;
+  async AddUser(action, url, email, subEmail, firstname, lastname) {
     let requestURI;
     requestURI = url;
 
@@ -125,27 +151,27 @@ export class ModalComponent implements OnInit {
       firstname: firstname,
       lastname: lastname,
     }
-    this.myObjectToAdd = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
-    console.log(this.myObjectToAdd);
-    await this.processRes(this.myObjectToAdd.status);
+    this.myUserToAdd = await this.OktaApiService.InvokeFlow(requestURI, requestBody);
+    console.log(this.myUserToAdd);
+    await this.processUserRes(this.myUserToAdd.status);
 
   }
 
-  processRes(res) {
+  processUserRes(res) {
     switch (res) {
       case "Secondary email wrong!": {
-        this.toastMsg = this.myObjectToAdd.status;
+        this.toastMsg = this.myUserToAdd.status;
         this.showError();
         break;
       }
       case "User exists": {
-        this.toastMsg = this.myObjectToAdd.status;
+        this.toastMsg = this.myUserToAdd.status;
         this.showError();
         break;
       }
 
       case "User created": {
-        this.toastMsg = this.myObjectToAdd.status;
+        this.toastMsg = this.myUserToAdd.status;
         this.showSuccess();
         break;
       }
