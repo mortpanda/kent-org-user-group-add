@@ -17,9 +17,11 @@ import { AddComponent } from './add/add.component';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { ModalComponent } from './shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import {DividerModule} from 'primeng/divider';
-import {InputTextModule} from 'primeng/inputtext';
-
+import { DividerModule } from 'primeng/divider';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +44,13 @@ import {InputTextModule} from 'primeng/inputtext';
     MatDialogModule,
     DividerModule,
     InputTextModule,
+    FormsModule,
+    ToastModule,
   ],
-  providers: [ModalComponent],
+  providers: [
+    ModalComponent,
+    MessageService, 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
