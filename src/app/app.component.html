@@ -1,16 +1,27 @@
+<style>
+  #appMain {
+
+    background-image: url('assets/img/bg-cloud-v2.png');
+  }
+
+  #smallappMain {
+    background-image: url('assets/img/bg-cloud-v2.png');
+  }
+</style>
+
 <ng-template #bigScreen>
 
-<div id="appMain">
-  <app-menubar></app-menubar>  
-  <router-outlet></router-outlet>
-</div>
+  <div id="appMain">
+    <app-menubar></app-menubar>
+    <router-outlet></router-outlet>
+  </div>
 </ng-template>
 
 <!-- ************************* SMALL SCREEN ************************* -->
 <!-- ************************* SMALL SCREEN ************************* -->
 <ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
   <div id="smallappMain">
-    <app-menubar></app-menubar>  
+    <app-menubar></app-menubar>
     <router-outlet></router-outlet>
   </div>
 </ng-template>
