@@ -41,19 +41,10 @@ export class ModalComponent implements OnInit {
     public OktaConfigService: OktaConfigService,
     private messageService: MessageService,
   ) {
-    this.userFirstName = "Test";
-    this.userLastName = "User-200"
-    this.userEmail = "test.user-200@okta.com"
-
-    this.groupName = "test-group"
-    this.groupDesc = "test-desc"
-
   }
 
   async ngOnInit() {
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
-    // alert(this.selectedMessage)
-
     this.strUserSession = await this.authService.isAuthenticated();
     console.log(this.strUserSession)
     switch (this.strUserSession == true) {
@@ -97,12 +88,8 @@ export class ModalComponent implements OnInit {
     }
   }
 
-  // SubmitResponse;
+  
   async Submit(action) {
-    await console.log(this.userFirstName)
-    await console.log(this.userLastName)
-    await console.log(this.userEmail)
-
     switch (action) {
       case "adduser": {
         await this.AddUser(action, this.OktaConfigService.strAddUrl, this.userEmail, this.strThisUser.email, this.userFirstName, this.userLastName)
@@ -173,6 +160,18 @@ export class ModalComponent implements OnInit {
       case "User created": {
         this.toastMsg = this.myUserToAdd.status;
         this.showSuccess();
+        break;
+      }
+
+      case "Group Created": {
+        this.toastMsg = this.myGroupToAdd.status;
+        this.showSuccess();
+        break;
+      }
+
+      case "Group exists": {
+        this.toastMsg = this.myGroupToAdd.status;
+        this.showError();
         break;
       }
     }

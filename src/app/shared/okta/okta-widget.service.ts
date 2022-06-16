@@ -22,9 +22,9 @@ export class OktaWidgetService {
   public LogoutURI = this.OktaConfig.strPostLogoutURL;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private OktaConfig: OktaConfigService
-    ) { }
+  ) { }
 
   async checkAuthenticated() {
     const authenticated = await this.authClient.session.exists();
@@ -46,6 +46,16 @@ export class OktaWidgetService {
       baseUrl: OktaBaseURI,
       language: OktaLang,
       redirectUri: OktaRedirect,
+      features: {
+        showPasswordToggleOnSignInPage: true,
+        hideSignOutLinkInMFA: true,
+        rememberMe: false,
+        registration: false,
+        multiOptionalFactorEnroll: false,            // Allow users to enroll in multiple optional factors before finishing the authentication flow.
+        selfServiceUnlock: false,                    // Will enable unlock in addition to forgotten password
+        smsRecovery: false,                          // Enable SMS-based account recovery
+        callRecovery: false,
+      },
       colors: {
         brand: OktaBrand,
       },
@@ -97,7 +107,7 @@ export class OktaWidgetService {
     const OktaClientID = this.OktaConfig.strClientID;
     const OktaBaseURI = this.OktaConfig.strBaseURI;
     const OktaLang = this.OktaConfig.strLang;
-   const OktaRedirect = this.OktaConfig.strRedirectURL;
+    const OktaRedirect = this.OktaConfig.strRedirectURL;
     const OktaBrand = this.OktaConfig.strBrand;
     const OktaIssuer = this.OktaConfig.strIssuer;
     const OktaScope = this.OktaConfig.strScope;
@@ -105,7 +115,7 @@ export class OktaWidgetService {
       clientId: OktaClientID,
       baseUrl: OktaBaseURI,
       language: OktaLang,
-     redirectUri: OktaRedirect,
+      redirectUri: OktaRedirect,
       colors: {
         brand: OktaBrand,
       },
